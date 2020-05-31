@@ -11,7 +11,7 @@
       <nav>
         <ul>
           <li>
-            <router-link to="/mentorias"><h2>Mentors Code</h2></router-link>
+            <router-link to="/"><h2>Mentors Code</h2></router-link>
           </li>
           <li class="top">
             <router-link to="/mentorias"
@@ -20,40 +20,55 @@
               </a></router-link
             >
             <div class="separador"></div>
-            <a class="empieza" href="">
+            <a class="empieza" @click="pop">
               Empieza
             </a>
           </li>
         </ul>
       </nav>
     </div>
-    <!-- <div class="modal-register">
+    <div class="modal-register">
       <div class="content">
         <div class="imagen">
           <h2>Bienvenido, únete hoy a nuestro grupo de Meetens</h2>
-          <img src="../assets/home/sesion.svg" />
         </div>
         <div class="formulario">
-          <div class="close" id="close">+</div>
+          <div class="close" @click="popClose" id="close">+</div>
           <form>
             <div class="input">
               <p>Nombre</p>
-              <input type="text" name="" id="" />
+              <input class="tex" type="text" name="" id="" />
             </div>
             <div class="input">
               <p>E-mail</p>
-              <input type="email" name="" id="" />
+              <input class="tex" type="email" name="" id="" />
             </div>
             <div class="input">
               <p>Contraseña</p>
-              <input type="password" name="" id="" />
+              <input class="tex" type="password" name="" id="" />
+            </div>
+            <div class="input">
+              <input class="boton" type="submit" value="Regístrate" id="" />
             </div>
           </form>
         </div>
       </div>
-    </div> -->
+    </div>
   </div>
 </template>
+
+<script>
+export default {
+  methods: {
+    pop() {
+      document.querySelector(".modal-register").style.display = "flex";
+    },
+    popClose() {
+      document.querySelector(".modal-register").style.display = "none";
+    }
+  }
+};
+</script>
 
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap");
@@ -95,6 +110,7 @@
   margin-left: 16px;
   width: 130px;
   text-align: center;
+  cursor: pointer;
 }
 
 .top {
@@ -159,5 +175,99 @@ nav ul li h2 {
 }
 .container nav ul li a {
   text-decoration-line: none;
+}
+.modal-register {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+  display: none;
+}
+
+.content {
+  width: 700px;
+  height: 520px;
+  display: flex;
+  flex-direction: row;
+}
+
+.close {
+  margin-right: -280px;
+  font-size: 32px;
+  transform: rotate(45deg);
+  color: #f26900;
+  font-weight: 900;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.imagen {
+  width: 50%;
+  height: 100%;
+  background: url("../assets/home/sesion.svg");
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imagen h2 {
+  width: 70%;
+  font-family: "Lato", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: #ffffff;
+  text-align: center;
+}
+
+.formulario {
+  margin-top: 6px;
+  width: 50%;
+  height: 500px;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.formulario form {
+  width: 90%;
+  margin: 15px auto;
+}
+
+.formulario form p {
+  font-family: "Lato", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #979494;
+  margin-top: 30px;
+}
+
+.tex {
+  width: 300px;
+  height: 48px;
+  border: 1px solid #cccccc;
+  margin-top: 10px;
+}
+
+.boton {
+  width: 300px;
+  height: 48px;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+  background-color: #f26900;
+  color: #cccccc;
+  margin-top: 30px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 300;
+  font-size: 22px;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #f26900;
 }
 </style>
