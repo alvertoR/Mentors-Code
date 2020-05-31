@@ -2,6 +2,7 @@ import express  from 'express';
 import morgan   from 'morgan';
 import mongoose from 'mongoose';
 import cors     from 'cors';
+import path from "path";
 
 //rutas
 import rutasUsuarios from './rutes/usuario';
@@ -43,6 +44,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/mentorscode/user', rutasUsuarios);
 app.use('/mentorscode/video', rutasVideos);
 
+app.use(express.static(path.join(__dirname,'public')));
 
 //Iniciar servidor
 app.set('puerto', process.env.PORT || 3000);
