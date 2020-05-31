@@ -14,7 +14,7 @@
                 </router-link>
               </li>
               <li>
-                <router-link to="">
+                <router-link to="/mentorias">
                   <a href="">Mentorias</a>
                 </router-link>
               </li>
